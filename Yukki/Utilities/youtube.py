@@ -34,7 +34,7 @@ def get_yt_info_query(query: str):
 
 
 def get_yt_info_query_slider(query: str, query_type: int):
-    a = VideosSearch(query, limit=10)
+    a = VideosSearch(query, limit=50)
     result = (a.result()).get("result")
     title = result[query_type]["title"]
     duration_min = result[query_type]["duration"]
