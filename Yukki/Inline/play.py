@@ -196,7 +196,7 @@ def secondary_markup2(videoid, user_id):
     return buttons
 
 
-def primary_markup(videoid, user_id, current_time, total_time):
+def primary_markup(videoid, user_id, current_time, total_time, query):
     if videoid not in db_mem:
         db_mem[videoid] = {}
     db_mem[videoid]["check"] = 2
@@ -229,7 +229,7 @@ def primary_markup(videoid, user_id, current_time, total_time):
     return buttons
 
 
-def timer_markup(videoid, user_id, current_time, total_time):
+def timer_markup(videoid, user_id, current_time, total_time, query):
     buttons = [
         [
             InlineKeyboardButton(
