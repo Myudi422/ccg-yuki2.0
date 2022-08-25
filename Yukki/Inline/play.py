@@ -215,7 +215,7 @@ def primary_markup(videoid, user_id, current_time, total_time, query):
     buttons = [
         [
             InlineKeyboardButton(
-                text=f"{total_time} ------------------ {current_time}",
+                text=f"{current_time} ------------------ {total_time}",
                 callback_data=f"timer_checkup_markup {videoid}|{user_id}",
             )
         ],
@@ -230,7 +230,7 @@ def primary_markup(videoid, user_id, current_time, total_time, query):
                 text="🔎 More Results",
                 callback_data=f"Search {query}|{user_id}",
             )
-        ]
+        ],
         [
             InlineKeyboardButton(
                 text="🔗 More Menu", callback_data=f"other {videoid}|{user_id}"
