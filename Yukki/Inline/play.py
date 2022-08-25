@@ -163,13 +163,19 @@ def search_markup2(
     return buttons
 
 
-def secondary_markup(videoid, user_id):
+def secondary_markup(videoid, user_id, query):
     buttons = [
         [
             InlineKeyboardButton(text="▶️", callback_data=f"resumecb"),
             InlineKeyboardButton(text="⏸️", callback_data=f"pausecb"),
             InlineKeyboardButton(text="⏭️", callback_data=f"skipcb"),
             InlineKeyboardButton(text="⏹️", callback_data=f"stopcb"),
+        ],
+        [
+            InlineKeyboardButton(
+                text="🔎 More Results",
+                callback_data=f"Search {query}|{user_id}",
+            )
         ],
         [
             InlineKeyboardButton(
@@ -181,13 +187,19 @@ def secondary_markup(videoid, user_id):
     return buttons
 
 
-def secondary_markup2(videoid, user_id):
+def secondary_markup2(videoid, user_id, query):
     buttons = [
         [
             InlineKeyboardButton(text="▶️", callback_data=f"resumecb"),
             InlineKeyboardButton(text="⏸️", callback_data=f"pausecb"),
             InlineKeyboardButton(text="⏭️", callback_data=f"skipcb"),
             InlineKeyboardButton(text="⏹️", callback_data=f"stopcb"),
+        ],
+        [
+            InlineKeyboardButton(
+                text="🔎 More Results",
+                callback_data=f"Search {query}|{user_id}",
+            )
         ],
         [
             InlineKeyboardButton(text="🗑 Close Menu", callback_data=f"close"),
