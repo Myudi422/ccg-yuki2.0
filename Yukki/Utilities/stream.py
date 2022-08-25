@@ -26,7 +26,6 @@ async def start_stream(
     duration_min,
     duration_sec,
     mystic,
-    query,
 ):
     global get_queue
     if CallbackQuery.message.chat.id not in db_mem:
@@ -41,7 +40,7 @@ async def start_stream(
             .replace("/", "", 1)
             .replace(".", "", 1)
         )
-        buttons = secondary_markup(videoid, CallbackQuery.from_user.id, query)
+        buttons = secondary_markup(videoid, CallbackQuery.from_user.id)
         if file not in db_mem:
             db_mem[file] = {}
         cpl = f"cache/{_path_}final.png"
@@ -81,7 +80,7 @@ async def start_stream(
         await music_on(CallbackQuery.message.chat.id)
         await add_active_chat(CallbackQuery.message.chat.id)
         buttons = primary_markup(
-            videoid, CallbackQuery.from_user.id, query, duration_min, duration_min
+            videoid, CallbackQuery.from_user.id, duration_min, duration_min
         )
         await mystic.delete()
         cap = f"🎥<b>__Playing:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n💡<b>__Info:__</b> [Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**__Requested by:__** {CallbackQuery.from_user.mention}"

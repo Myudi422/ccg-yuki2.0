@@ -252,7 +252,6 @@ async def Music_Stream(_, CallbackQuery):
         duration_min,
         duration_sec,
         mystic,
-        query,
     )
 
 
