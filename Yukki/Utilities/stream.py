@@ -26,6 +26,7 @@ async def start_stream(
     duration_min,
     duration_sec,
     mystic,
+    query,
 ):
     global get_queue
     if CallbackQuery.message.chat.id not in db_mem:
