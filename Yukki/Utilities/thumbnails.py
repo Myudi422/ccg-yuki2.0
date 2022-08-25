@@ -4,7 +4,7 @@ from os import path
 
 import aiofiles
 import aiohttp
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
 def changeImageSize(maxWidth, maxHeight, image):
@@ -32,22 +32,19 @@ async def gen_thumb(thumbnail, title, userid, theme, ctitle):
     Image.alpha_composite(image5, image6).save(f"cache/temp{userid}.png")
     img = Image.open(f"cache/temp{userid}.png")
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("Utils/finalfont.ttf", 85)
-    font2 = ImageFont.truetype("Utils/finalfont.ttf", 60)
+    font = ImageFont.truetype("Utils/finalfont.ttf", 40)
+    font2 = ImageFont.truetype("Utils/Aileron-Bold.otf", 30)
     draw.text(
-        (20, 45),
-        f"Playing on: {ctitle[:14]}...",
+        (100, 310),
+        f"[Info] - Judul:",
         fill="white",
-        stroke_width=1,
-        stroke_fill="white",
         font=font2,
     )
+    # reso asli - 25, 595
     draw.text(
-        (25, 595),
-        f"{title[:27]}...",
+        (100, 350),
+        f"{title[:30]}...",
         fill="white",
-        stroke_width=2,
-        stroke_fill="white",
         font=font,
     )
     img.save(f"cache/final{userid}.png")
